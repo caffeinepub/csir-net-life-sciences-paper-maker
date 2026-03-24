@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --sidebar-bg: oklch(0.17 0.04 255);
+    --sidebar-fg: oklch(0.92 0.01 255);
+    --sidebar-muted: oklch(0.55 0.04 255);
+    --sidebar-active: oklch(0.48 0.18 255);
+    --sidebar-hover: oklch(0.24 0.04 255);
+    --sidebar-border: oklch(0.25 0.04 255);
+    --header-bg: oklch(1 0 0);
+    --page-bg: oklch(0.97 0.005 255);
+    --navy: oklch(0.17 0.04 255);
+    --navy-light: oklch(0.24 0.06 255);
+    --accent-blue: oklch(0.55 0.2 255);
+    --accent-blue-light: oklch(0.93 0.05 255);
+    --success: oklch(0.6 0.18 145);
+    --warning: oklch(0.72 0.18 65);
+    --danger: oklch(0.55 0.22 25);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+}
+
+.sidebar-nav-link {
+  @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-150;
+  color: var(--sidebar-fg);
+}
+.sidebar-nav-link:hover {
+  background: var(--sidebar-hover);
+}
+.sidebar-nav-link.active {
+  background: var(--sidebar-active);
+  color: white;
+}
+.sidebar-nav-link .icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.85;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body {
+    background: white;
+  }
+  .paper-preview {
+    padding: 20mm;
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+}
